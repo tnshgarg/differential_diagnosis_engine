@@ -1,0 +1,126 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": -1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Pet dard aur halka bukhar",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Food poisoning",
+            "rank": 1,
+            "rationale": "Common"
+          },
+          {
+            "label": "Typhoid-like",
+            "rank": 2,
+            "rationale": "Possible"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Pet dard thik hai par thakaan bahut hai aur raat ko halka pasina",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Fatigue"
+          },
+          {
+            "label": "TB-like",
+            "rank": 2,
+            "rationale": "Night sweats"
+          },
+          {
+            "label": "Typhoid-like",
+            "rank": 3,
+            "rationale": "Fever"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina"
+        ],
+        "pivot": false,
+        "action": "defer"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Sookhi khaansi shuru hui",
+        "image_desc": "looks tired"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "TB-like",
+            "rank": 1,
+            "rationale": "Cough + sweats"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Cough"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Extended"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khaansi"
+        ],
+        "pivot": false,
+        "action": "defer"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Khasi aur thakaan",
+        "image_desc": "no clear visible signs"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "TB-like",
+            "rank": 1,
+            "rationale": "Prolonged"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Possible"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "No"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "defer"
+      }
+    }
+  ]
+}

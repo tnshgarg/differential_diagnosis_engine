@@ -1,0 +1,129 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Dast aur thakaan lag rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Gastroenteritis",
+            "rank": 1,
+            "rationale": "Diarrhea"
+          },
+          {
+            "label": "Food poisoning",
+            "rank": 2,
+            "rationale": "Diarrhea"
+          },
+          {
+            "label": "Typhoid-like",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [
+          "dast"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bukhar shuru ho gaya aur badh raha hai, pet dard hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid-like",
+            "rank": 1,
+            "rationale": "Increasing fever + abdominal"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Still possible"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "No"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar badh raha hai",
+          "pet dard"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Dast aur tez bukhar",
+        "image_desc": "sweaty"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid-like",
+            "rank": 1,
+            "rationale": "Classic signs"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "No"
+          },
+          {
+            "label": "Dengue-like",
+            "rank": 3,
+            "rationale": "No"
+          }
+        ],
+        "discriminating_symptoms": [
+          "tez bukhar"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Kamzori",
+        "image_desc": "improving"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid-like",
+            "rank": 1,
+            "rationale": "Recovery"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "No"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "No"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    }
+  ]
+}

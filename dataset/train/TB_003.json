@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Bukhar hai, sar dard, thakaan aur ajeeb si khasi",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Common fever presentation"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Mild cough"
+          },
+          {
+            "label": "TB-like",
+            "rank": 3,
+            "rationale": "No cardinal signs"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bukhar abhi bhi hai, khaansi thodi badh gayi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Cough persists"
+          },
+          {
+            "label": "TB-like",
+            "rank": 2,
+            "rationale": "Cough continuing"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Unlikely"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khaansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Khaansi 2 hafte se zyada ho gayi, raat ko pasina aata hai, wazan kam ho raha hai",
+        "image_desc": "visible weight loss"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "TB-like",
+            "rank": 1,
+            "rationale": "Night sweats + weight loss + prolonged cough"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Unlikely with weight loss"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khaansi > 2 weeks"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Bahut kamzori, khaansi mein thoda khoon bhi aaya",
+        "image_desc": "blood in sputum"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "TB-like",
+            "rank": 1,
+            "rationale": "Haemoptysis confirms TB"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 2,
+            "rationale": "Ruled out"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 3,
+            "rationale": "Ruled out"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khoon aana"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

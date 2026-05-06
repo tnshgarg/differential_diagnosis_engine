@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Sookhi khaansi aur halka bukhar pichle 10 din se",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Prolonged cough"
+          },
+          {
+            "label": "TB-like",
+            "rank": 2,
+            "rationale": "Need to monitor"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Too long for viral"
+          }
+        ],
+        "discriminating_symptoms": [
+          "10 din se khaansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Raat ko pasina aata hai aur khaansi mein balgam hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "TB-like",
+            "rank": 1,
+            "rationale": "Night sweats + >2 wk cough"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 2,
+            "rationale": "Productive cough"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 3,
+            "rationale": "Unlikely"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Wazan kam lag raha hai, saans lene mein takleef",
+        "image_desc": "pale appearance"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "TB-like",
+            "rank": 1,
+            "rationale": "Consistent TB"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 2,
+            "rationale": "Less likely"
+          },
+          {
+            "label": "Asthma",
+            "rank": 3,
+            "rationale": "Wheezing absent"
+          }
+        ],
+        "discriminating_symptoms": [
+          "wazan kam hona"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Condition worsening, khoon aaya",
+        "image_desc": "prescription shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "TB-like",
+            "rank": 1,
+            "rationale": "Confirmed"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 2,
+            "rationale": "No"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 3,
+            "rationale": "No"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khoon aaya"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Halka bukhar aur ajeeb si thakaan",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Mild fever"
+          },
+          {
+            "label": "Typhoid-like",
+            "rank": 2,
+            "rationale": "Malaise"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bukhar roz badh raha hai, pet mein dard aur kabz hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid-like",
+            "rank": 1,
+            "rationale": "Step-wise fever + constipation"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Abdominal pain"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Less likely"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai",
+          "kabz"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bahut tez bukhar hai aur dast lag gaye",
+        "image_desc": "looks exhausted"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid-like",
+            "rank": 1,
+            "rationale": "High fever + diarrhea"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Diarrhea"
+          },
+          {
+            "label": "Dengue-like",
+            "rank": 3,
+            "rationale": "Unlikely"
+          }
+        ],
+        "discriminating_symptoms": [
+          "tez bukhar",
+          "dast"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Halat kharab hai, pet mein bahut dard",
+        "image_desc": "holding stomach in pain"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid-like",
+            "rank": 1,
+            "rationale": "Complications risk"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Unlikely"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "No"
+          }
+        ],
+        "discriminating_symptoms": [
+          "pet mein bahut dard"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

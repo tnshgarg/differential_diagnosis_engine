@@ -1,0 +1,124 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": -1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Halka bukhar aur sar dard",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Common"
+          },
+          {
+            "label": "Dengue-like",
+            "rank": 2,
+            "rationale": "Possible"
+          },
+          {
+            "label": "Typhoid-like",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bukhar nahi utar raha",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Persists"
+          },
+          {
+            "label": "Typhoid-like",
+            "rank": 2,
+            "rationale": "Continuous"
+          },
+          {
+            "label": "Dengue-like",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "defer"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Thodi chakkar aa rahi hai",
+        "image_desc": "no rash"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue-like",
+            "rank": 1,
+            "rationale": "Dizziness"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Fatigue"
+          },
+          {
+            "label": "Typhoid-like",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [
+          "chakkar"
+        ],
+        "pivot": false,
+        "action": "defer"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Kamzori",
+        "image_desc": "looks weak"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue-like",
+            "rank": 1,
+            "rationale": "Recovery"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Possible"
+          },
+          {
+            "label": "Typhoid-like",
+            "rank": 3,
+            "rationale": "No"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "defer"
+      }
+    }
+  ]
+}

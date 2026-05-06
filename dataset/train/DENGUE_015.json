@@ -1,0 +1,127 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Bahut jodo mein dard aur thakaan",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Joint pain"
+          },
+          {
+            "label": "Dengue-like",
+            "rank": 2,
+            "rationale": "Pain"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [
+          "jodo mein dard"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Tez bukhar aur lal daane",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue-like",
+            "rank": 1,
+            "rationale": "Fever + Rash"
+          },
+          {
+            "label": "Measles",
+            "rank": 2,
+            "rationale": "Rash"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane",
+          "tez bukhar"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Kamzori bahut zyada hai",
+        "image_desc": "weakness"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue-like",
+            "rank": 1,
+            "rationale": "Post-viral fatigue"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 2,
+            "rationale": "Unlikely"
+          },
+          {
+            "label": "Measles",
+            "rank": 3,
+            "rationale": "Unlikely"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Ab thik lag raha hai",
+        "image_desc": "improving"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue-like",
+            "rank": 1,
+            "rationale": "Recovery"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 2,
+            "rationale": "No"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "No"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "disease_ground_truth": "Dengue + Typhoid",
+  "pivot_visit": -1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Tez bukhar aur pet mein dard",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid-like",
+            "rank": 1,
+            "rationale": "Abdominal"
+          },
+          {
+            "label": "Dengue-like",
+            "rank": 2,
+            "rationale": "High fever"
+          },
+          {
+            "label": "Food poisoning",
+            "rank": 3,
+            "rationale": "Pain"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bukhar badh gaya hai, jodo mein dard bhi",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue-like",
+            "rank": 1,
+            "rationale": "Joint pain"
+          },
+          {
+            "label": "Typhoid-like",
+            "rank": 2,
+            "rationale": "Fever increasing"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [
+          "jodo mein dard"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Lal daane aur dast (diarrhea)",
+        "image_desc": "rash visible"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue-like",
+            "rank": 1,
+            "rationale": "Rash"
+          },
+          {
+            "label": "Typhoid-like",
+            "rank": 2,
+            "rationale": "Diarrhea"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "No"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane",
+          "dast"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Chakkar aa rahe hain",
+        "image_desc": "pale"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue-like",
+            "rank": 1,
+            "rationale": "Weakness"
+          },
+          {
+            "label": "Typhoid-like",
+            "rank": 2,
+            "rationale": "Prolonged"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "No"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

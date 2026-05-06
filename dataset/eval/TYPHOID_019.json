@@ -1,0 +1,124 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": -1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Sirf sar dard aur thakaan",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Common"
+          },
+          {
+            "label": "Migraine",
+            "rank": 2,
+            "rationale": "Headache"
+          },
+          {
+            "label": "Typhoid-like",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bukhar aana shuru hua",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Fever"
+          },
+          {
+            "label": "Typhoid-like",
+            "rank": 2,
+            "rationale": "Fever"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "defer"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Thoda pet kharab hai",
+        "image_desc": "no clear signs"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid-like",
+            "rank": 1,
+            "rationale": "Mild GI"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Persists"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [
+          "pet kharab"
+        ],
+        "pivot": false,
+        "action": "defer"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Thakaan lag rahi hai bas",
+        "image_desc": "tired"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid-like",
+            "rank": 1,
+            "rationale": "Mild case"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Post-viral"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 3,
+            "rationale": "No"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "defer"
+      }
+    }
+  ]
+}

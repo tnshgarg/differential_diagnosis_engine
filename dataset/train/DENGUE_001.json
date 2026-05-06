@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Achanak se tez bukhar aur sar dard shuru hua",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Sudden fever"
+          },
+          {
+            "label": "Dengue-like",
+            "rank": 2,
+            "rationale": "Sudden onset"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Possible"
+          }
+        ],
+        "discriminating_symptoms": [
+          "achanak tez bukhar"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Aankhon ke peeche dard aur haddiyan toot rahi hain",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue-like",
+            "rank": 1,
+            "rationale": "Retro-orbital and joint pain"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Unlikely severe"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 3,
+            "rationale": "Joint pain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard",
+          "haddiyon mein dard"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bukhar kam hai par lal daane nikal aaye",
+        "image_desc": "red rash visible on arms"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue-like",
+            "rank": 1,
+            "rationale": "Rash after fever drop"
+          },
+          {
+            "label": "Measles",
+            "rank": 2,
+            "rationale": "Rash"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 3,
+            "rationale": "Less likely"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Chakkar aa rahe hain aur masoodon se khoon aya",
+        "image_desc": "pale, bleeding gums"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue-like",
+            "rank": 1,
+            "rationale": "Hemorrhagic signs"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 2,
+            "rationale": "Ruled out"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Ruled out"
+          }
+        ],
+        "discriminating_symptoms": [
+          "masoodon se khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}
