@@ -1,0 +1,129 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Bahut bukhaar hai, sar dard kar raha hai, 5-saal ka bachha hai, bahut rota hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Acute onset of high fever and headache"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Non-specific symptoms of fever and headache"
+          },
+          {
+            "label": "Dengue",
+            "rank": 3,
+            "rationale": "Fever and headache can be initial symptoms, but more specific symptoms are needed for diagnosis"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Aankhon ke peeche dard ho raha hai, haddiyan toot rahi hain, bukhaar abhi bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Retro-orbital pain and bone pain are characteristic symptoms"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 2,
+            "rationale": "Similar symptoms, but joint pain is more typical"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Non-specific symptoms, but could be a viral infection"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bukhaar kam ho gaya hai, lal daane nikal aaye hain, masoodon se khoon aa raha hai",
+        "image_desc": "red rash on arms and chest"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Classic symptoms of Dengue: fever drop, rash, and bleeding gums"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Rash and bleeding gums are not typical of viral fever"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria does not typically present with rash and bleeding gums"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Abhi bhi bahut kamjori hai, dehydration ho raha hai",
+        "image_desc": "dehydrated, dry cracked lips"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Recovery from Dengue can be prolonged, with persistent weakness"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Ruled out, as symptoms are more consistent with Dengue"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out, as symptoms are not consistent with Malaria"
+          }
+        ],
+        "discriminating_symptoms": [
+          "extreme weakness"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

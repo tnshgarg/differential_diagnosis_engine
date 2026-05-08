@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bukhar aur thakaan mehsoos kar raha hoon, sar dard bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Bukhar aur thakaan generic viral presentation hai"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Bukhar aur thakaan bronchitis ka bhi symptom ho sakta hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Abhi tak koi specific symptom nahi hai jo tuberculosis ki taraf ishara kare"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe dry cough ho raha hai, bukhar abhi bhi hai lekin thakaan thodi kam ho gayi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Dry cough bronchitis ka common symptom hai"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Bukhar abhi bhi hai lekin viral fever ka symptom kam ho raha hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Abhi tak koi specific symptom nahi hai jo tuberculosis ki taraf ishara kare"
+          }
+        ],
+        "discriminating_symptoms": [
+          "sookhi khaansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe raat ko pasina aata hai, wazan bhi kam ho raha hai aur cough abhi bhi hai",
+        "image_desc": "petechiae rash spots on torso"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Raat ko pasina, wazan kam hona aur cough >2 weeks tuberculosis ki cardinal signs hai"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Cough bronchitis ka symptom hai lekin raat ko pasina aur wazan kam hona ismein nahi hota"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Petechiae rash spots pneumonia ki taraf bhi ishara kar sakte hain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khaansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe severe weakness mehsoos ho rahi hai, balgam mein khoon bhi aaya hai",
+        "image_desc": "blood-tinged sputum on cloth"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Severe weakness, balgam mein khoon tuberculosis ki confirmation hai"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out, bronchitis mein aisa symptom nahi hota"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out, pneumonia mein bhi aisa symptom nahi hota"
+          }
+        ],
+        "discriminating_symptoms": [
+          "severe weakness",
+          "balgam mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

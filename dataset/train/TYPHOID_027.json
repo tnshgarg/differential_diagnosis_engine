@@ -1,0 +1,132 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bahut thakaan mehsoos ho rahi hai, bukhar bhi hai aur sar dard hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Low-grade fever, malaise, and headache are common symptoms of viral fever"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Gastroenteritis can also cause similar symptoms"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Although possible, typhoid is less likely at this stage without more specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe bukhar roz badh raha hai, pet dard bhi ho raha hai aur kabz ki problem bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Step-wise fever and abdominal pain are indicative of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Gastroenteritis can cause similar gastrointestinal symptoms"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Viral fever is less likely given the progression of symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe tez bukhar hai, kabz ke baad dast ho raha hai aur bahut kamzori mehsoos ho rahi hai",
+        "image_desc": "red rash on arms and chest"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "The combination of high fever, diarrhea after constipation, and severe weakness are cardinal signs of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Gastroenteritis is less likely given the severity of symptoms and the presence of a rash"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria could be considered, but the specific pattern of symptoms points more towards typhoid"
+          }
+        ],
+        "discriminating_symptoms": [
+          "kabz ke baad dast",
+          "tez bukhar",
+          "pet mein bahut dard"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe abhi bhi bukhar hai, bahut thakaan mehsoos ho rahi hai, aur pet dard se pareshan hun",
+        "image_desc": "holding chest while coughing"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "The persistence of high fever, exhaustion, and abdominal pain confirms typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to the prolonged nature of symptoms and specific signs of typhoid"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out as the symptoms and signs do not align with malaria"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar",
+          "pet dard",
+          "kamzori"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

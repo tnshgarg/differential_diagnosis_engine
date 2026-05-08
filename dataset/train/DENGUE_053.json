@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Meri tabiyat bahut kharab hai, bukhar bahut tezi se chadha hai aur bahut bad headaches ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Acute onset of fever and headache"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "High fever and headache are common symptoms of viral fever"
+          },
+          {
+            "label": "Dengue",
+            "rank": 3,
+            "rationale": "Although fever and headache are common in dengue, other symptoms are not present yet"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Aankhon ke peeche dard ho rahi hai, haddiyan toot rahi hain, bukhar abhi bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Retro-orbital pain and joint pain are common in Chikungunya"
+          },
+          {
+            "label": "Dengue",
+            "rank": 2,
+            "rationale": "Retro-orbital pain is a key symptom of dengue, but other symptoms are still missing"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Although viral fever can cause body aches, the presence of retro-orbital pain is less common"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bukhar kam ho gayi hai, lal daane nikal aaye hain, masoodon se khoon aa raha hai",
+        "image_desc": "visible weight loss, sunken cheeks"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "The presence of rash, bleeding gums, and drop in fever are cardinal signs of dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever does not typically cause bleeding gums or a rash"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria does not typically cause retro-orbital pain or bleeding gums"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard",
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe bahut kamzori mehsoos ho rahi hai, masoodon se khoon abhi bhi aa raha hai",
+        "image_desc": "blood-tinged sputum on cloth"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "The presence of bleeding gums, weakness, and blood-tinged sputum confirm dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Ruled out due to the presence of specific dengue symptoms"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to the absence of typical malaria symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "masoodon se khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

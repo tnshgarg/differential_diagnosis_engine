@@ -1,0 +1,129 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": -1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Didi, mujhe bukhar hai aur thakaan mehsoos ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Bukhar aur thakaan generic viral presentation ke symptoms hai"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Bronchitis bhi bukhar aur thakaan ka cause ho sakta hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Tuberculosis ke symptoms abhi tak clear nahi ho rahe"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Didi, ab mujhe sukhri khaansi bhi ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Sukhri khaansi bronchitis ka common symptom hai"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever bhi khaansi ka cause ho sakta hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Tuberculosis ke symptoms abhi tak clear nahi ho rahe"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khaansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Didi, raat ko mujhe pasina aata hai aur wazan bhi kam ho raha hai",
+        "image_desc": "prescription from previous PHC visit shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Raat ko pasina aur wazan kam hona tuberculosis ke cardinal symptoms hai"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Bronchitis ke symptoms abhi tak clear nahi ho rahe"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Pneumonia ke symptoms abhi tak clear nahi ho rahe"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona"
+        ],
+        "pivot": false,
+        "action": "defer"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Didi, ab mujhe bahut weakness mehsoos ho rahi hai aur khaansi mein khoon bhi aata hai",
+        "image_desc": "distended abdomen"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Khaansi mein khoon aur weakness tuberculosis ke Confirming symptoms hai"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khaansi mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

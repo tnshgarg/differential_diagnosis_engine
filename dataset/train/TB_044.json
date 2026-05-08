@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "main thoda bukhar aur thakaan mehsoos kar rahi hoon",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "bukhar aur thakaan ke lakshan viral fever ke saath milte hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "thakaan aur bukhar bronchitis ke shuruaati lakshanon mein shamil ho sakte hain"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "filhal koi visheshtibhut lakshan nahi hai jo tuberculosis ki ore ishara karein"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "meri khaansi shuru ho gayi hai, sookhi khaansi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "sookhi khaansi bronchitis ke lakshan mein shamil hai"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "khaansi viral fever ke baad bhi ho sakti hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "abhi tak tuberculosis ke paksh mein koi vishisht lakshan nahi hain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khaansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "meri khaansi 2 hafte se zyada ho gayi hai, raat ko bahut pasina aata hai aur wazan bhi kam ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "khaansi 2 hafte se zyada, raat ko pasina aur wazan kam hona tuberculosis ke cardenal lakshanon mein shamil hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "bronchitis mein itne lambe samay tak khaansi aur wazan kam hona aam nahi hai"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "pneumonia ke lakshanon mein yeh sabhi nahi shamil hote"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khaansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "meri halat bahut kharab ho gayi hai, bahut kamzori mehsoos ho rahi hai aur khaansi mein kabhi-kabhi thodi si bleeding bhi ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "khaansi mein bleeding tuberculosis ki gharbhdashata ko badha deti hai"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "bronchitis mein itni gharbhdashata aur bleeding aam nahi hai"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "pneumonia ka ilaj shuru karne mein deri ho sakti hai lekin abhi tak ke lakshanon se pneumonia ka koi vishisht sanket nahi mila"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khaansi mein bleeding",
+          "severe kamzori"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

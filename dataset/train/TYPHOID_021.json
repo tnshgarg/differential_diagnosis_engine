@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Bachha ko kafi dino se bukhar hai, bahut thakaan mehsoos ho raha hai, sir dard bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Bukhar, thakaan aur sir dard viral fever ke generic lakshan hain"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Pet dard ya dast nahi hai, lekin ho sakta hai"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Abhi tak koi specific lakshan nahi hai"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bachha ko roz bukhar badh raha hai, pet dard bhi ho raha hai, kabz bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Bukhar roz badhna aur kabz typhoid ke lakshan hain"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Pet dard aur kabz gastroenteritis meh bhi ho sakte hain"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Abhi tak koi specific lakshan nahi hai"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bachha ko tez bukhar hai, kabz ke baad dast ho raha hai, bahut kamzori mehsoos ho rahi hai, pet dard bhi bahut hai",
+        "image_desc": "Patient holding stomach in pain"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Tez bukhar, kabz ke baad dast, aur pet dard typhoid ke cardinal lakshan hain"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Pet dard aur dast gastroenteritis meh bhi ho sakte hain, lekin tej bukhar nahi hota"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria meh aam taur par chhillatein hoti hain, jo abhi tak nahi hui"
+          }
+        ],
+        "discriminating_symptoms": [
+          "kabz ke baad dast",
+          "pet mein bahut dard"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Bachha ko abhi bhi tej bukhar hai, bahut thakaan mehsoos ho rahi hai, pet dard bhi badh gaya hai, dast bhi ho raha hai",
+        "image_desc": "holding chest while coughing"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Typhoid ki confirmation ho chuki hai, abhi bhi tej bukhar aur pet dard hain"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out, kyunki abhi tak koi specific lakshan nahi hai"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out, kyunki abhi tak koi specific lakshan nahi hai"
+          }
+        ],
+        "discriminating_symptoms": [
+          "tez bukhar",
+          "pet dard"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

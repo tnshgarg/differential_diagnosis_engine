@@ -1,0 +1,129 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda thakaan mehsoos kar raha hoon, bukhar bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Generic symptoms of low-grade fever and malaise"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Non-specific abdominal discomfort"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Unlikely at this stage due to lack of specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bukhar roz badh raha hai, pet dard bhi ho raha hai, kabz ki shikayat bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Step-wise fever and abdominal pain are indicative of Typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Constipation and abdominal pain could be due to Gastroenteritis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Less likely due to presence of abdominal symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Tez bukhar, kabz ke baad dast ho raha hai, bahut kamzori mehsoos ho rahi hai",
+        "image_desc": "patient looks exhausted, lying down"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Classic symptoms of Typhoid, including step-wise fever, diarrhea after constipation, and severe weakness"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Less likely due to presence of high-grade fever and severe weakness"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Unlikely due to lack of specific symptoms such as chills and rigors"
+          }
+        ],
+        "discriminating_symptoms": [
+          "kabz ke baad dast",
+          "tez bukhar"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Bukhar abhi bhi hai, thakaan bhi bahut hai, pet mein bahut dard ho raha hai",
+        "image_desc": "petechiae on lower limbs"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Confirmed by presence of classic symptoms and risk of intestinal perforation"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to presence of high-grade fever and severe abdominal pain"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to lack of specific symptoms and presence of abdominal symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "pet mein bahut dard"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bahut tezi se fever ho gayi hai aur bahut buri headache ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Acute onset of high fever and headache"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Fever and headache are common symptoms of viral fever"
+          },
+          {
+            "label": "Dengue",
+            "rank": 3,
+            "rationale": "Although possible, early stages of Dengue are less likely without other symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe aankhon ke peeche dard ho raha hai aur haddiyan toot rahi hain",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Retro-orbital pain and bone pain are characteristic of Dengue"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 2,
+            "rationale": "Joint pain is common in Chikungunya, but retro-orbital pain is less common"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Viral fever may cause body aches, but the specific pattern of symptoms is less typical"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe fever kam ho gayi hai, lekin lal daane nikal aaye hain aur masoodon se khoon aa raha hai",
+        "image_desc": "visible weight loss, sunken cheeks"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "The combination of fever drop, rash, and bleeding gums is highly suggestive of Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever may cause rash, but the combination with bleeding gums is less typical"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria may cause fever, but the specific pattern of symptoms is less typical"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard",
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe bahut kamzori mehsoos ho rahi hai aur bruising bhi ho rahi hai",
+        "image_desc": "bruising on arms without injury"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "The presence of bruising and severe weakness confirms the diagnosis of Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Ruled out due to the presence of specific symptoms characteristic of Dengue"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to the presence of specific symptoms characteristic of Dengue"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane",
+          "masoodon se khoon",
+          "bruising"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

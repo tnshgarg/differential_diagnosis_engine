@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bahut kamzori hai, bukhar bhi hai, sir dard ho raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": " Generic fever and fatigue"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Non-specific abdominal discomfort"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Low-grade fever and headache could be initial symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bukhar roz badh raha hai, pet dard ho raha hai, kabz bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Step-wise increase in fever and abdominal pain"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Abdominal pain and constipation could be gastroenteritis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Fever pattern not typical for viral fever"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Tez bukhar ho raha hai, kabz ke baad dast ho gaya hai, bahut kamzori hai",
+        "image_desc": "petechiae rash spots on torso"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Classic symptoms of typhoid: high fever, diarrhea after constipation, rash"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Diarrhea could be gastroenteritis, but fever pattern and rash are not typical"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Fever pattern not typical for malaria"
+          }
+        ],
+        "discriminating_symptoms": [
+          "kabz ke baad dast",
+          "tez bukhar",
+          "petechiae rash"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Bahut thakaan ho rahi hai, bukhar abhi tak hai, pet mein bahut dard ho raha hai",
+        "image_desc": "dehydrated, dry cracked lips"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Prolonged fever, severe abdominal pain, and dehydration are complications of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to fever pattern and abdominal pain"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to fever pattern and absence of typical symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "pet mein bahut dard",
+          "dehydration"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

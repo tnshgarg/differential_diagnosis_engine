@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thakaan mehsoos kar rahi hoon, bukhar hai aur sar dard hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Generic viral presentation"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Could be a respiratory infection"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Less likely due to lack of specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe sukha khaansi ho rahi hai, aur thodi si saans phool rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Dry cough and shortness of breath are common symptoms"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Could still be a viral infection"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Still less likely, but needs monitoring"
+          }
+        ],
+        "discriminating_symptoms": [
+          "sukha khaansi"
+        ],
+        "pivot": true,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Main raat ko bahut pasina aata hai, aur mere vajan mein kami aa rahi hai",
+        "image_desc": "patient looks exhausted, lying down"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Night sweats and weight loss are cardinal signs of TB"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Less likely due to presence of night sweats and weight loss"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Could be a differential diagnosis, but less likely"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "vajan kam hona"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe bahut kamzori mehsoos ho rahi hai, aur mere balgam mein khoon aaya hai",
+        "image_desc": "patient on cot, unable to move"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Presence of blood in sputum and severe weakness confirm TB"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out due to presence of blood in sputum and severe symptoms"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out due to presence of blood in sputum and chronic symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khaansi 2 hafte se zyada",
+          "balgam mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

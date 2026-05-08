@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bahut tezi se bukhar chadha hai, sir bhi bahut dard kar raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Acute onset of high fever and headache"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Fever and headache are common symptoms of viral fever"
+          },
+          {
+            "label": "Dengue",
+            "rank": 3,
+            "rationale": "Although possible, no specific symptoms of Dengue are present yet"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Aankhon ke peeche dard ho raha hai, haddiyan toot rahi hain, bukhar abhi bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Retro-orbital pain and bone pain are characteristic symptoms of Dengue"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 2,
+            "rationale": "Although Chikungunya can cause joint pain, the presence of retro-orbital pain is more indicative of Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Viral fever is less likely given the specific symptoms of retro-orbital and bone pain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bukhar kam ho gaya hai, lal daane nikaal aaye hain, masoodon se khoon aa raha hai",
+        "image_desc": "patient looks exhausted, lying down"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "The appearance of rash and bleeding gums, along with the drop in fever, are cardinal signs of Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever is unlikely given the specific combination of symptoms"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria is less likely without symptoms of chills, sweats, and cyclical fever patterns"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard",
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Abhi bhi bahut kamzori mehsoos ho rahi hai, doctor ne kaha hai ki Dengue confirm hai",
+        "image_desc": "prescription and blood test report shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Laboratory confirmation and the presence of key symptoms confirm Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Ruled out due to laboratory confirmation of Dengue"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to lack of specific symptoms and laboratory confirmation of Dengue"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

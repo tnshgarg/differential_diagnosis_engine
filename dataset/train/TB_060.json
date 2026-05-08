@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bukhar aur thakaan mehsoos kar raha hoon, sar bhi dard kar raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Bukhar aur thakaan ke lakshan hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Khansi ka lakshan nahin hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Abhi tak koi vishisht lakshan nahin hain"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe sookhi khansi ho rahi hai, bukhar bhi abhi tak hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Sookhi khansi ka lakshan hai"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Bukhar abhi tak hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Raat ko pasina ya wazan kam hona ka lakshan nahin hai"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Sookhi khansi"
+        ],
+        "pivot": true,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe raat ko pasina aa raha hai, wazan bhi kam ho raha hai, khansi bhi abhi tak hai",
+        "image_desc": "sweating visible on forehead"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Raat ko pasina, wazan kam hona, aur khansi ke lakshan hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Khansi ka lakshan hai, lekin raat ko pasina ya wazan kam hona ka lakshan nahin hai"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Saansein lena mushkil nahin hai"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Raat ko pasina",
+          "Wazan kam hona"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe bahut kamzori mehsoos ho rahi hai, khansi mein kabhi-kabhi khoon bhi aa raha hai",
+        "image_desc": "petechiae on lower limbs"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Kamzori, khansi mein khoon, aur raat ko pasina ke lakshan hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Kamzori",
+          "Khansi mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

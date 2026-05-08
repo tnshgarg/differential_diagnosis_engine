@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bukhar aur thakan mehsoos kar rahi hoon",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Bukhar aur thakan ke symptoms hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Abhi tak koi specific symptoms nahi hain"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Abhi tak koi specific symptoms nahi hain"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Ab main ko khansi bhi ho rahi hai, sookhi khansi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Sookhi khansi bronchitis ka symptom hai"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Bukhar aur thakan abhi bhi maujood hain"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Abhi tak koi specific symptoms nahi hain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "sookhi khansi"
+        ],
+        "pivot": true,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Raat ko mujhe bahut pasina aata hai, aur main kaafi kamzor mehsoos kar rahi hoon, wazan bhi kam ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Raat ko pasina, wazan kam hona, aur khansi 2 hafte se zyada, Ye tuberculosis ke symptoms hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Khansi abhi bhi maujood hai, lekin anya symptoms nahi hain"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Abhi tak koi specific symptoms nahi hain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khaansi 2 hafte se zyada"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Ab mujhe bahut weakness mehsoos ho rahi hai, aur kabhi kabhi mujhe khansi mein khoon bhi aata hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Weakness, khansi mein khoon, aur pehle ke symptoms tuberculosis ki pushti karte hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out, kyunki anya symptoms nahi hain"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out, kyunki anya symptoms nahi hain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "kabhi kabhi khansi mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

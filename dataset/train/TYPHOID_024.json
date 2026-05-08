@@ -1,0 +1,133 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bukhar hai, sir dard ho raha hai, thoda thakaan mehsoos ho raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Low-grade fever and malaise are common symptoms of viral fever"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Gastroenteritis can also present with similar symptoms"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Although possible, Typhoid is less likely at this stage without more specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe bukhar roz badh raha hai, pet dard ho raha hai, kabz hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Gastroenteritis",
+            "rank": 1,
+            "rationale": "Abdominal pain and constipation are common in gastroenteritis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever can still be a possibility"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Step-wise fever and abdominal symptoms could suggest Typhoid, but more specific symptoms are needed"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe tez bukhar hai, kabz ke baad dast ho gaya hai, bahut kamzori mehsoos ho rahi hai",
+        "image_desc": "sweating visible on forehead"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Tez bukhar, kabz ke baad dast, and severe weakness are cardinal signs of Typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Gastroenteritis is less likely given the specific progression of symptoms"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria is possible but less likely without a clear history of mosquito exposure or other specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai",
+          "kabz ke baad dast",
+          "pet mein bahut dard"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe abhi bhi bukhar hai, bahut thakaan mehsoos ho rahi hai, pet dard badh gaya hai",
+        "image_desc": "petechiae on lower limbs"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Continued high fever, exhaustion, and abdominal pain confirm the diagnosis of Typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to the specific progression of symptoms and the presence of petechiae"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to the lack of specific symptoms and the presence of petechiae which is more suggestive of Typhoid"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai",
+          "kabz ke baad dast",
+          "pet mein bahut dard",
+          "petechiae on lower limbs"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

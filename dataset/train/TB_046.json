@@ -1,0 +1,129 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thakaan mehsoos kar rahi hoon, bukhar bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Generic viral presentation"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Common cause of cough and fatigue"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Less likely due to lack of specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Maine kuch dinon se sukha khaansi shuru ki hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Persistent dry cough is a common symptom"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Still a possibility, but less likely"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Still less likely due to lack of specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "sukha khaansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe raat ko pasina aata hai, aur maine kuch wazan kam ki hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Night sweats and weight loss are cardinal signs"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Less likely due to presence of night sweats and weight loss"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Less likely due to lack of acute symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Main bahut kamzor mehsoos kar rahi hoon, aur mere balgam mein khoon aaya hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Presence of blood in sputum confirms the diagnosis"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out due to presence of blood in sputum"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out due to chronic nature of symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "balgam mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

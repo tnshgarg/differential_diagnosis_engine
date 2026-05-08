@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Bachha bukhar aur thakan mahsoos kar raha hai, 5 saal ka hai, bahut rota hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Mild fever and fatigue are common symptoms of viral fever"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Dry cough is a common symptom of bronchitis"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "No specific symptoms of tuberculosis are present yet"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bachha ki khansi shuru ho gayi hai, sookhi khansi hai, bukhar bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Persistent dry cough is a common symptom of bronchitis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Fever is still present, but cough has become more prominent"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "No specific symptoms of tuberculosis are present yet"
+          }
+        ],
+        "discriminating_symptoms": [
+          "sookhi khansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bachha ki khansi 2 hafte se zyada ho gayi hai, raat ko pasina aata hai, wazan bhi kam ho raha hai",
+        "image_desc": "patient holding stomach in pain"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Cough for more than 2 weeks, night sweats, and weight loss are cardinal signs of tuberculosis"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Bronchitis is less likely due to the presence of night sweats and weight loss"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Pneumonia is less likely due to the chronic nature of symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khaansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Bachha ki halat bigad rahi hai, kamzori mahsoos ho rahi hai, balgam mein khoon bhi aa raha hai",
+        "image_desc": "dehydrated, dry cracked lips"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Severe weakness and blood in sputum confirm the diagnosis of tuberculosis"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out due to the presence of severe symptoms and blood in sputum"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out due to the chronic nature of symptoms and presence of blood in sputum"
+          }
+        ],
+        "discriminating_symptoms": [
+          "balgam mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

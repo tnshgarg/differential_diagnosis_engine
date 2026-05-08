@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bukhar hai aur bahut thakaan mehsoos ho raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Patient presents with mild fever and fatigue, which is a generic viral presentation"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Although bronchitis is a possibility, the patient's symptoms are not specific enough to confirm this diagnosis"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Tuberculosis is a less likely diagnosis at this point, as the patient's symptoms are not yet specific enough to suggest this disease"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe sukhhi khaansi ho rahi hai, aur mujhe lagta hai ki ye bronchitis ho sakta hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "The patient's persistent dry cough suggests bronchitis as a possible diagnosis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Although the patient's symptoms are still consistent with a viral fever, the cough suggests that bronchitis may be a more likely diagnosis"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Tuberculosis is still a less likely diagnosis, as the patient's symptoms are not yet specific enough to suggest this disease"
+          }
+        ],
+        "discriminating_symptoms": [
+          "sukhhi khaansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe raat ko pasina aata hai, aur mujhe lagta hai ki meri wazan bhi kam ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "The patient's night sweats, weight loss, and persistent cough suggest tuberculosis as a likely diagnosis"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Although bronchitis is still a possible diagnosis, the patient's night sweats and weight loss suggest that tuberculosis may be a more likely diagnosis"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Pneumonia is a less likely diagnosis, as the patient's symptoms are more consistent with tuberculosis"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khaansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe bahut kamzori mehsoos ho rahi hai, aur mujhe lagta hai ki meri halat bigad rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "The patient's severe weakness and worsening symptoms confirm tuberculosis as the likely diagnosis"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out, as the patient's symptoms are more consistent with tuberculosis"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out, as the patient's symptoms are more consistent with tuberculosis"
+          }
+        ],
+        "discriminating_symptoms": [
+          "kamzori",
+          "halat bigadna"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

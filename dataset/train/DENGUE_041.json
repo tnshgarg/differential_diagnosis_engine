@@ -1,0 +1,132 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Bachcha bahut bukhar se pareshan hai, sir dard bhi bahut hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Acute onset of high fever and headache"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Non-specific symptoms of fever and headache"
+          },
+          {
+            "label": "Dengue",
+            "rank": 3,
+            "rationale": "Fever and headache could be initial symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Ab toh aankhon ke peeche dard bhi ho raha hai, haddiyan toot rahi hain",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Retro-orbital pain and joint pain are common in Chikungunya"
+          },
+          {
+            "label": "Dengue",
+            "rank": 2,
+            "rationale": "Aankhon ke peeche dard and bone pain could be indicative of Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Non-specific symptoms, could be any viral infection"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bachche ka bukhar kam ho gaya hai, lal daane bhi nazar aa rahe hain, masoodon se khoon aa raha hai",
+        "image_desc": "prescription from previous PHC visit shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Fever drop, lal daane, and masoodon se khoon are cardinal signs of Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Rash and bleeding gums could be seen in other infections"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria is less likely given the presence of lal daane and masoodon se khoon"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard",
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Bachcha abhi bhi bahut kamzor hai, harkat bhi nahin kar pa raha",
+        "image_desc": "patient on cot, unable to move"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Prolonged weakness and inability to move are consistent with Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Ruled out due to presence of specific symptoms and signs"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to absence of typical symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane",
+          "masoodon se khoon",
+          "extreme weakness"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

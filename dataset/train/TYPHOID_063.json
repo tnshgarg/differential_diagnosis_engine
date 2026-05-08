@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bahut thakaan mehsoos ho rahi hai, sir dard kar raha hai, bukhar bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Low-grade fever and malaise are common in viral fever"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Headache can be a symptom of gastroenteritis"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Although fever and malaise are present, they are non-specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bachcha ka bukhar roz badh raha hai, pet dard bhi ho raha hai, kabz ho gayi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Step-wise fever and constipation are key symptoms of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Abdominal pain can be present in gastroenteritis, but fever pattern is different"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Fever pattern does not match viral fever"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": true,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Ab bachche ko tez bukhar ho rahi hai, kabz ke baad dast ho gayi hai, bahut kamzori mehsoos ho rahi hai",
+        "image_desc": "pale appearance, dark circles under eyes"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "High fever, diarrhea after constipation, and severe weakness are cardinal signs of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Diarrhea can be present in gastroenteritis, but fever pattern and weakness are not typical"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Fever pattern does not match malaria"
+          }
+        ],
+        "discriminating_symptoms": [
+          "kabz ke baad dast",
+          "pet mein bahut dard"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Bachcha poora thaka hua hai, bukhar abhi bhi hai, khada bhi nahi ho paa raha",
+        "image_desc": "severe weakness, cannot stand"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Severe weakness, continuous high fever, and risk of intestinal perforation confirm typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to fever pattern and severity of symptoms"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to fever pattern and absence of specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai",
+          "kabz ke baad dast"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bukhar hai aur thakaan mehsoos ho rahi hai, sar dard bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Generic viral presentation"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Could be a respiratory infection"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Less likely due to absence of specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe khansi ho rahi hai, dry cough hai, par bukhar utna nahin hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Dry cough and persistence of symptoms"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Could still be a viral infection"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Still less likely due to absence of specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Khansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe khansi 2 hafte se zyada ho gayi hai, raat ko pasina aata hai, wazan bhi kam ho raha hai",
+        "image_desc": "pale appearance, dark circles under eyes"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Cardinal signs of night sweats, weight loss, and prolonged cough"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Less likely due to presence of systemic symptoms"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Less likely due to absence of acute respiratory distress"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Raat ko pasina",
+          "Wazan kam hona",
+          "Khansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe bahut kamzori mehsoos ho rahi hai, khansi mein kabhi-kabhi khoon bhi aata hai",
+        "image_desc": "holding chest while coughing"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Presence of hemoptysis and severe weakness"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out due to presence of systemic and respiratory symptoms"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out due to chronicity of symptoms and absence of acute respiratory distress"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Khoon aana"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

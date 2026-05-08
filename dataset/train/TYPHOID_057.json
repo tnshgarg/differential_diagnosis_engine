@@ -1,0 +1,133 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thakawat mehsoos kar rahi hoon, bukhar bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Generic fever and fatigue"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Non-specific symptoms"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Less likely due to absence of specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mere bukhar roz badh raha hai, pet dard bhi hai aur kabz ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Step-wise fever and constipation"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Abdominal pain and constipation"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Less likely due to specific gastrointestinal symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai",
+          "kabz"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Ab toh tez bukhar ho raha hai, kabz ke baad dast ho gayi hai aur mujhe bahut kamzori mehsoos ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Classic symptoms of typhoid fever"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Less likely due to presence of high fever and constipation followed by diarrhea"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Less likely due to absence of typical malaria symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "tez bukhar",
+          "kabz ke baad dast",
+          "pet dard"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Main bahut thak gayi hoon, bukhar abhi bhi hai aur pet mein bahut dard ho raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Prolonged fever, abdominal pain, and exhaustion"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to prolonged course and specific symptoms"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to absence of typical symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar",
+          "pet dard",
+          "thakawat"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

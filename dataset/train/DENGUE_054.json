@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Bachha 5 saal ka hai, bahut rota hai, bukhar bahut tezi se chadha hai, sir dard kar raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Acute onset of high fever and severe headache"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Common cause of fever and headache in children"
+          },
+          {
+            "label": "Dengue",
+            "rank": 3,
+            "rationale": "Less likely without other symptoms, but cannot be ruled out"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bachha ko aankhon ke peeche dard ho raha hai, haddiyan toot rahi hain, bukhar abhi bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Retro-orbital pain and bone pain are characteristic symptoms"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 2,
+            "rationale": "Still possible, but less likely with these new symptoms"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Less likely with these specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bachha ko bukhar kam ho gaya hai, lal daane nikal aaye hain, masoodon se khoon aa raha hai",
+        "image_desc": "pale appearance, dark circles under eyes"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Characteristic rash and bleeding gums confirm Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Unlikely with these specific symptoms"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Less likely without other symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard",
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Bachha ab thoda behtar hai, lekin abhi bhi bahut kamzor hai, doctor ne blood test kiya hai",
+        "image_desc": "prescription and blood test report shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Blood test results confirm Dengue, and patient is recovering"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Ruled out by blood test results"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out by blood test results"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

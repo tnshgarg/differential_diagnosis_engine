@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thakaan mehsoos kar rahi hoon, bukhar bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Generic viral presentation"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Common cause of cough"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Less common, but possible"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe khansi ho rahi hai, sukh ki khansi",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Persistent dry cough is a common symptom"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Still a possibility, but less likely"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Still a possibility, but less likely"
+          }
+        ],
+        "discriminating_symptoms": [
+          "suukh ki khansi"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Main raat ko bahut pasina aata hai, wazan bhi kam ho raha hai, khansi abhi bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Night sweats, weight loss, and persistent cough are cardinal signs"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Less likely, as symptoms are more severe"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Possible, but less likely"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khaansi 2 hafte se zyada"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Main bahut kamzor mehsoos kar rahi hoon, khansi mein khoon bhi aa raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Blood in sputum is a confirming symptom"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out, as symptoms are more severe"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out, as symptoms are more severe"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khoon ki khansi"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

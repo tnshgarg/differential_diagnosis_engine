@@ -1,0 +1,129 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thaka hua mehsoos kar raha hoon, bukhar bhi hai, sar dard hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Low-grade fever and malaise are common in viral fever"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Gastroenteritis can cause similar symptoms"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Typhoid is less likely at this stage, but cannot be ruled out"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mere bukhar roz badh raha hai, pet dard bhi hai, kabz ho raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Gastroenteritis",
+            "rank": 1,
+            "rationale": "Abdominal pain and constipation are common in gastroenteritis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever can cause similar symptoms, but the step-wise increase in fever is more suggestive of typhoid"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "The step-wise increase in fever is a key feature of typhoid"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mere tez bukhar hai, kabz ke baad dast ho gaya hai, mujhe bahut kamzori mehsoos ho rahi hai",
+        "image_desc": "visible weight loss, sunken cheeks"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "The combination of high-grade fever, constipation followed by diarrhea, and severe weakness is highly suggestive of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Gastroenteritis can cause some similar symptoms, but the severity of the symptoms and the presence of constipation followed by diarrhea are more suggestive of typhoid"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria can cause fever and weakness, but the other symptoms are not typical of malaria"
+          }
+        ],
+        "discriminating_symptoms": [
+          "kabz ke baad dast",
+          "tez bukhar"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe bahut thakaan mehsoos ho rahi hai, mere bukhar abhi tak nahin gaya hai, pet mein bahut dard hai",
+        "image_desc": "petechiae on lower limbs"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "The persistence of high-grade fever, severe weakness, and abdominal pain, along with the presence of petechiae, confirms the diagnosis of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to the severity of the symptoms and the presence of petechiae"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to the lack of typical symptoms of malaria"
+          }
+        ],
+        "discriminating_symptoms": [
+          "pet mein bahut dard"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

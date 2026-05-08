@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bahut bukhar hai, sir dard kar raha hai, bahut hi jaldi se bukhar chadha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Acute onset fever and headache"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Fever and headache are common symptoms"
+          },
+          {
+            "label": "Dengue",
+            "rank": 3,
+            "rationale": "Although possible, not enough information to confirm"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe aankhon ke peeche dard ho raha hai, haddiyan toot rahi hain, bukhar abhi bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Retro-orbital pain and bone pain are characteristic symptoms"
+          },
+          {
+            "label": "Dengue",
+            "rank": 2,
+            "rationale": "Aankhon ke peeche dard is a key symptom of Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Less likely due to specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe lal daane ho gaye hain, masoodon se khoon aa raha hai, bukhar kam ho gaya hai",
+        "image_desc": "swollen lymph nodes on neck"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Lal daane, masoodon se khoon, and decreased fever confirm Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Lack of specific symptoms rules out viral fever"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "No characteristic symptoms of malaria are present"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard",
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe bahut kamzori mehsoos ho rahi hai, pehle se zyada lal daane ho gaye hain",
+        "image_desc": "jaundiced appearance"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Persistent symptoms and worsening condition confirm Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Ruled out due to specific Dengue symptoms"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to lack of characteristic symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

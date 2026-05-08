@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bahut tezi se bukhar chadha hai, sareer dard kar raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Sudden onset fever and body ache"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Common symptoms of viral fever"
+          },
+          {
+            "label": "Dengue",
+            "rank": 3,
+            "rationale": "Less likely, but possible"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Meri aankhon ke peeche dard ho raha hai, haddiyan toot rahi hain",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Retro-orbital pain and joint pain are common symptoms"
+          },
+          {
+            "label": "Dengue",
+            "rank": 2,
+            "rationale": "Retro-orbital pain is a key symptom of Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Less likely, but still possible"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mere bukhar kam ho gaya hai, lal daane nikaal aaye hain, masoodon se khoon aa raha hai",
+        "image_desc": "pale appearance, dark circles under eyes"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Classic symptoms of Dengue: retro-orbital pain, rash, and bleeding gums"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Rash and bleeding gums are not typical symptoms of viral fever"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria typically presents with cyclical fever and chills"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard",
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe bahut kamzori mehsoos ho rahi hai, petechiae nikaal aaye hain",
+        "image_desc": "petechiae on lower limbs"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Confirmation of Dengue: petechiae and severe weakness"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Ruled out due to presence of petechiae and severe weakness"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to lack of cyclical fever and chills"
+          }
+        ],
+        "discriminating_symptoms": [
+          "petechiae"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

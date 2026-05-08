@@ -1,0 +1,133 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Meri tabiyat thik nahi hai, bukhar hai, sirdard hai aur thakawat mehsoos ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Low-grade fever and malaise are common in viral fever"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Headache and fatigue can also be seen in gastroenteritis"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Although possible, typhoid typically presents with more specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mere bukhar roz badh raha hai, pet dard ho raha hai aur kabz ki samasya hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Gastroenteritis",
+            "rank": 1,
+            "rationale": "Abdominal pain and constipation suggest a gastrointestinal issue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Fever can still be part of a viral infection"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Step-wise increase in fever and abdominal pain could be indicative of typhoid, but not conclusive yet"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Ab mere bukhar tez ho gaya hai, kabz ke baad dast ho gaya hai aur mujhe bahut kamzori mehsoos ho rahi hai",
+        "image_desc": "swollen lymph nodes on neck"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "The combination of high fever, transition from constipation to diarrhea, and severe weakness, along with swollen lymph nodes, strongly suggests typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "While gastroenteritis can cause similar gastrointestinal symptoms, the severity of the fever and the presence of swollen lymph nodes are less typical"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria can cause high fever, but the presence of gastrointestinal symptoms and swollen lymph nodes are not typical for malaria"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai",
+          "kabz ke baad dast",
+          "pet mein bahut dard"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mere halat aur bhi kharab ho gaye hain, bukhar abhi tak hai, thakawat bahut zyada hai aur doctor ne kaha hai ki intestinal perforation ka khatra hai",
+        "image_desc": "prescription and blood test report shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "The progression of symptoms, including prolonged high fever, severe weakness, and the risk of intestinal perforation, confirms the diagnosis of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to the severity and progression of symptoms not typical for gastroenteritis"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to the clinical presentation and laboratory findings not consistent with malaria"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai",
+          "kabz ke baad dast",
+          "pet mein bahut dard",
+          "severe weakness"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

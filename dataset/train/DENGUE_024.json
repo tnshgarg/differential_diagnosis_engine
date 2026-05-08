@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bukhar aa rahi hai, bahut tezi se badh rahi hai, aur sir mein bahut dard ho raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Acute onset fever and headache are common in Chikungunya"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Fever and headache can be seen in various viral fevers"
+          },
+          {
+            "label": "Dengue",
+            "rank": 3,
+            "rationale": "Although possible, the absence of other symptoms makes it less likely at this stage"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Aankhon ke peeche dard ho raha hai, haddiyan toot rahi hain, aur bukhar abhi bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Retro-orbital pain and bone pain are characteristic of Dengue fever"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 2,
+            "rationale": "While joint pain is common in Chikungunya, the specific symptoms here lean more towards Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Viral fevers can present with a variety of symptoms, but the specific combination here is less typical"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bukhar kam ho rahi hai, lekin lal daane nikal rahe hain, aur masoodon se khoon aa raha hai",
+        "image_desc": "petechiae rash spots on torso"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "The appearance of rash and bleeding gums along with the previous symptoms strongly suggests Dengue fever"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "While some viral fevers can cause rash, the specific combination of symptoms here is more indicative of Dengue"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria typically presents with cyclic fever and other distinct symptoms not seen here"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Bahut kamzori mehsoos ho rahi hai, aur haalat bigra raha hai",
+        "image_desc": "blood-tinged sputum on cloth"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "The progression of symptoms and presence of hemorrhagic signs confirm the diagnosis of Dengue fever"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Ruled out due to the specific symptoms and signs of Dengue fever"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to the lack of typical malaria symptoms and the presence of Dengue-specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard",
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

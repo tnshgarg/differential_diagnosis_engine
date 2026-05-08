@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Bachcha ko bukhar hai, bahut thakawat mehsoos ho raha hai, sar dard bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Mild fever and fatigue are common symptoms of viral fever"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Although less likely, bronchitis can also cause similar symptoms"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Tuberculosis is less likely at this stage without other specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bachcha ko sukhhi khaansi ho rahi hai, kabhi-kabhi thodi si thakaan bhi mehsoos ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "The onset of dry cough makes bronchitis a more likely diagnosis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever could still be a cause, but the cough suggests another possibility"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Tuberculosis is still less likely without more specific symptoms like night sweats or significant weight loss"
+          }
+        ],
+        "discriminating_symptoms": [
+          "sukhhi khaansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bachcha ko raat ko pasina aata hai, wazan bhi kam ho raha hai, aur khaansi ab 2 hafte se zyada ho gayi hai",
+        "image_desc": "visible weight loss, sunken cheeks"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "The combination of night sweats, weight loss, and prolonged cough strongly suggests tuberculosis"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Bronchitis is less likely given the severity of symptoms like night sweats and significant weight loss"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Pneumonia could be considered but the chronic nature of symptoms points more towards tuberculosis"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khaansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Bachcha ki halat aur bhi bigad gayi hai, bahut kamzori mehsoos ho rahi hai, aur kabhi-kabhi khaansi mein khoon bhi aa raha hai",
+        "image_desc": "visible severe weight loss, signs of anemia"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "The presence of blood in sputum and severe weakness confirms the diagnosis of tuberculosis"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out due to the severity and nature of symptoms"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out as the symptoms have progressed beyond what is typical for pneumonia"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khaansi mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

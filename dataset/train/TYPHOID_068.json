@@ -1,0 +1,129 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": -1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bukhar mehsoos kar rahi hoon aur bahut thakawat mehsoos ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Low-grade fever and malaise are common symptoms of viral fever"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Gastroenteritis can also cause fever and malaise"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Although typhoid is possible, the symptoms are not specific enough to confirm it at this stage"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "defer"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mere bukhar mein roz roz izafa ho raha hai, pet dard bhi ho raha hai aur kabz ki shikayat hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "The step-wise increase in fever and abdominal pain are indicative of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Gastroenteritis can also cause abdominal pain, but the fever pattern is not typical"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Viral fever is less likely given the abdominal symptoms and fever pattern"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": false,
+        "action": "defer"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Ab mujhe tez bukhar ho raha hai, kabz ke baad dast ho gaya hai aur bahut kamzori mehsoos ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "The combination of high fever, diarrhea after constipation, and severe weakness is highly suggestive of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Gastroenteritis can cause diarrhea, but the fever and weakness pattern is not typical"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Viral fever is less likely given the specific combination of symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "kabz ke baad dast",
+          "tez bukhar"
+        ],
+        "pivot": false,
+        "action": "defer"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Main bahut thakawat mehsoos kar rahi hoon, bukhar abhi tak baqi hai aur pet mein bahut dard ho raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "The persistent high fever, exhaustion, and severe abdominal pain are consistent with typhoid, which requires immediate medical attention"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to the prolonged fever and specific abdominal symptoms"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Ruled out due to the specific combination and severity of symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "pet mein bahut dard"
+        ],
+        "pivot": false,
+        "action": "defer"
+      }
+    }
+  ]
+}

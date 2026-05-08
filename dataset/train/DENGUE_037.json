@@ -1,0 +1,129 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bukhar hai, bahut tezi se bukhar aaya hai, sir bahut dard kar raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Sudden onset fever and headache, could be indicative of Chikungunya"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Common presentation of viral fever"
+          },
+          {
+            "label": "Dengue",
+            "rank": 3,
+            "rationale": "Acute onset fever and headache, but needs more symptoms to confirm"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Ab toh aankhon ke peeche dard ho raha hai, haddiyan toot rahi hain, bukhar abhi bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Retro-orbital pain and bone pain are key symptoms of Dengue"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 2,
+            "rationale": "Still possible, but less likely than Dengue given new symptoms"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Less likely given specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard"
+        ],
+        "pivot": true,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bukhar kam ho gaya hai, lal daane nikal aaye hain, masoodon se khoon aa raha hai",
+        "image_desc": "Prescription from previous PHC visit shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Fever drop, rash, and bleeding gums are cardinal signs of Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Unlikely given specific combination of symptoms"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Unlikely given absence of specific malaria symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Ab toh bahut kamzori mehsoos ho rahi hai, petechiae bhi dikh rahe hain",
+        "image_desc": "Petechiae on lower limbs"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Confirmation of Dengue with extreme weakness and petechiae"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Ruled out given specific Dengue symptoms"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out given absence of specific malaria symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "petechiae"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

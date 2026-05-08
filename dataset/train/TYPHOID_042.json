@@ -1,0 +1,132 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bahut bukhar mehsoos kar raha hoon, sir dard hai aur thoda kamzor bhi mehsoos ho raha hoon",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Low-grade fever and malaise are common symptoms of viral fever"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Headache and fatigue can be symptoms of gastroenteritis"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Although possible, the symptoms are not specific enough to suggest typhoid at this stage"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mere bukhar roz badh raha hai, pet dard bhi ho raha hai aur kabz ho gayi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Step-wise increase in fever and constipation are indicative of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Abdominal pain and constipation can be symptoms of gastroenteritis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Although viral fever can cause fever, the pattern of fever and abdominal symptoms suggest other diagnoses"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Ab toh mere bukhar bahut tez ho gaya hai, kabz ke baad dast ho gayi hai aur main bahut kamzor mehsoos kar raha hoon",
+        "image_desc": "bleeding from gums visible"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "The combination of high fever, diarrhea after constipation, and severe weakness are cardinal signs of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Although gastroenteritis can cause diarrhea, the overall clinical picture suggests typhoid"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria can cause high fever, but the presence of diarrhea after constipation and severe weakness points towards typhoid"
+          }
+        ],
+        "discriminating_symptoms": [
+          "tez bukhar",
+          "kabz ke baad dast",
+          "pet mein bahut dard"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Main abhi bhi bahut bukhar mehsoos kar raha hoon, thakaan mahsoos ho rahi hai aur pet dard bhi badh gaya hai",
+        "image_desc": "bruising on arms without injury"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "The persistence of high fever, exhaustion, and abdominal pain confirm the diagnosis of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to the persistence of symptoms and the presence of bruising"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to the lack of specific symptoms and the presence of bruising"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar",
+          "thakaan",
+          "pet dard"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

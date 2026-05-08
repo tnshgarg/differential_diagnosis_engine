@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bukhar aur thakaan mehsoos kar rahi hoon, sar dard bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Generic viral presentation"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Could be early stages of bronchitis"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Unlikely at this stage, but cannot be ruled out"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Meri khaansi shuru ho gayi hai, dry cough hai, par bukhar kam ho gaya hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Dry cough is a common symptom of bronchitis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Could still be a viral infection"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Unlikely, but cough duration is not yet a concern"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khaansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Meri khaansi ab 2 hafte se zyada ho gayi hai, raat ko pasina aa raha hai, aur wazan bhi kam ho raha hai",
+        "image_desc": "pale appearance, dark circles under eyes"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Chronic cough, night sweats, and weight loss are cardinal signs of TB"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Less likely, as symptoms have progressed beyond typical bronchitis"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Unlikely, as symptoms do not suggest a severe pneumonia"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khaansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe bohot kamzori mehsoos ho rahi hai, aur khaansi mein kabhi-kabhi khoon bhi aa raha hai",
+        "image_desc": "blood-tinged sputum on cloth"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Hemoptysis and severe weakness are concerning features of TB"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out, as symptoms have progressed beyond typical bronchitis"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out, as symptoms do not suggest a severe pneumonia"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khoon ki khaansi"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

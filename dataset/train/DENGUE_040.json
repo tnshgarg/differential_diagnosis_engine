@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bahut tezi se bukhar chadha hai, sir mein bahut dard hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Acute onset of high fever and severe headache is common in Chikungunya"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever can also cause high fever and headache"
+          },
+          {
+            "label": "Dengue",
+            "rank": 3,
+            "rationale": "Dengue is also a possibility, but the symptoms are not specific enough yet"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe aankhon ke peeche dard ho raha hai, haddiyan toot rahi hain",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Retro-orbital pain and bone pain are characteristic of Dengue"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 2,
+            "rationale": "Chikungunya can also cause joint pain, but retro-orbital pain is more specific to Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Viral fever is less likely, as the symptoms are becoming more specific to Dengue"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe bukhar kam ho gayi hai, lal daane nikaal rahe hain, masoodon se khoon aa raha hai",
+        "image_desc": "prescription from previous PHC visit shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "The combination of fever drop, rash, and bleeding gums is highly suggestive of Dengue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever is less likely, as the symptoms are highly specific to Dengue"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria is less likely, as the symptoms do not include typical malaria symptoms like chills and rigors"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard",
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe bahut kamzori mahsoos ho rahi hai, mujhe lagta hai ki mere halat bigar sakte hain",
+        "image_desc": "blood-tinged sputum on cloth"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "The patient's condition is consistent with Dengue, and the presence of blood-tinged sputum suggests possible hemorrhagic complications"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Ruled out, as the symptoms are highly specific to Dengue"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out, as the symptoms do not include typical malaria symptoms like chills and rigors"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bukhar mahsoos kar raha hoon, sir dard kar raha hai, thoda kamzor bhi mehsoos ho raha hoon",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Low-grade fever, malaise, and headache are common symptoms of viral fever"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Gastroenteritis can also present with similar symptoms"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Although possible, typhoid is less likely at this stage without more specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mere bukhar roz badh raha hai, pet dard bhi ho raha hai, aur kabz ki shikayat bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Gastroenteritis",
+            "rank": 1,
+            "rationale": "The addition of abdominal pain and constipation makes gastroenteritis a stronger possibility"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever can still be considered, but the gastrointestinal symptoms are less typical"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Typhoid becomes more likely with the step-wise increase in fever and gastrointestinal symptoms, but more specific signs are needed for confirmation"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Ab toh bukhar bahut tez ho gaya hai, kabz ke baad dast ho gaya hai, aur main bahut kamzor mehsoos kar raha hoon",
+        "image_desc": "petechiae rash spots on torso"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "The combination of high fever, diarrhea after constipation, severe weakness, and the presence of petechiae rash are cardinal signs that confirm typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Gastroenteritis is less likely given the severity of symptoms and the specific signs of typhoid"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria could be considered, but the specific pattern of fever and gastrointestinal symptoms, along with the rash, points more towards typhoid"
+          }
+        ],
+        "discriminating_symptoms": [
+          "kabz ke baad dast",
+          "pet mein bahut dard",
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Haalat aur bigad gaya hai, bukhar abhi tak hai, aur main puri tarah thak gaya hoon",
+        "image_desc": "bruising on arms without injury"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "The persistent high fever, exhaustion, and the presence of bruising without injury confirm the diagnosis of typhoid and indicate a severe stage of the disease"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to the severity and specific symptoms of typhoid"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to the lack of specific symptoms for malaria and the strong evidence for typhoid"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar ki lambi avadhi",
+          "shaaririk thakaan"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

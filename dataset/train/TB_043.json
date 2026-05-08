@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bukhar aur thakaan mehsoos kar raha hoon",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Bukhar aur thakaan ke lakshan viral fever ke liye vishisht hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Dry cough ki sankhya kam hai, isliye bronchitis sambhav hai lekin abhi tak spasht nahin hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Abhi tak koi vishisht lakshan nahin hain jo tuberculosis ki or ishara karte hain"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe khansi ho rahi hai aur yeh sukh khansi hai, koi balgam nahin hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Sukh khansi bronchitis ka lakshan ho sakta hai"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever abhi bhi sambhav hai, lekin khansi ka lakshan viral fever se alag hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Abhi tak koi vishisht lakshan nahin hain jo tuberculosis ki or ishara karte hain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe raat ko pasina aata hai, wazan bhi kam ho raha hai aur khansi 2 hafte se zyada ho gayi hai",
+        "image_desc": "patient looks exhausted, lying down"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Raat ko pasina, wazan kam hona aur 2 hafte se zyada khansi tuberculosis ke vishisht lakshan hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Bronchitis mein aise lakshan nahin hote"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Pneumonia mein bhi kuch alag lakshan hote hain, jaise balgam ya saans lene mein dikkat"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe ab bahut kamzori mehsoos ho rahi hai aur khansi mein kabhi-kabhi thoda balgam bhi aata hai",
+        "image_desc": "distended abdomen"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Tuberculosis ki pushti ho gayi hai, kamzori aur balgam ke lakshan bhi iske saath hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out, kyunki tuberculosis ki pushti ho gayi hai"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out, kyunki tuberculosis ki pushti ho gayi hai"
+          }
+        ],
+        "discriminating_symptoms": [
+          "severe weakness",
+          "kamzori"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

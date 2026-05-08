@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda fever mehsoos kar rahi hoon, sir dard bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Low-grade fever and malaise are common in viral fever"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Headache can be a symptom of gastroenteritis"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Although possible, typhoid typically presents with more severe symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mere bukhar roz badh raha hai, pet dard bhi ho raha hai aur kabz hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Gastroenteritis",
+            "rank": 1,
+            "rationale": "Abdominal pain and constipation are common in gastroenteritis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Fever can still be due to a viral cause"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Step-wise fever and abdominal pain could be indicative of typhoid, but not conclusive yet"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Tez bukhar ho raha hai, kabz ke baad dast ho gaya hai aur mujhe bahut weakness mehsoos ho rahi hai",
+        "image_desc": "patient holding stomach in pain"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Severe weakness, step-wise fever, and diarrhea after constipation are cardinal signs of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "While gastroenteritis can cause abdominal pain and diarrhea, the pattern of symptoms suggests typhoid"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria typically presents with a different pattern of fever and other symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "kabz ke baad dast",
+          "pet mein bahut dard"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe abhi bhi bukhar hai aur main bahut thak gayi hoon, risk of intestinal perforation bhi hai",
+        "image_desc": "prescription and blood test report shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Confirmation of typhoid through symptoms and investigations, risk of complications like intestinal perforation"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to the specific pattern of symptoms and laboratory findings"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to the clinical presentation and diagnostic tests"
+          }
+        ],
+        "discriminating_symptoms": [
+          "exhaustion",
+          "continuous high fever"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

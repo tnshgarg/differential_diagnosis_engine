@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bukhar aur thakan mehsoos kar raha hoon",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Generic viral presentation"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "No specific symptoms to rule it out"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "No cardinal signs present"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe dry cough ho rahi hai, kaafi der se chal rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Dry cough is a common symptom"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Still a possibility"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "No specific symptoms to suggest it"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe raat ko bahut pasina aata hai, wazan bhi kam ho raha hai aur cough abhi bhi hai",
+        "image_desc": "visible weight loss, sunken cheeks"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Cardinal signs like night sweats and weight loss are present"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Symptoms are not typical for bronchitis"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "No signs of pneumonia"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khaansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe ab bahut weakness mehsoos ho rahi hai, aur kuch din pehle mujhe balgam mein khoon aaya tha",
+        "image_desc": "prescription and blood test report shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Symptoms and test results confirm Tuberculosis"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out due to presence of blood in sputum"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out due to lack of specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "balgam mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

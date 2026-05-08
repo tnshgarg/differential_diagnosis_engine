@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bukhar aur thakaan mehsoos kar rahi hoon, sar dard bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Bukhar aur thakaan ke lakshan hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Khansi abhi tak nahi hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Abhi tak koi vishisht lakshan nahi hain"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Ab main sukhhi khansi mehsoos kar rahi hoon, par bukhar thoda kam ho gaya hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Sukhhi khansi ka lakshan hai"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Bukhar thoda kam ho gaya hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Abhi tak koi vishisht lakshan nahi hain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Sukhhi khansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Main raat ko pasina mehsoos karti hoon, khansi 2 hafte se zyada ho gayi hai, aur wazan bhi kam ho raha hai",
+        "image_desc": "petechiae rash spots on torso"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Raat ko pasina, khansi 2 hafte se zyada, aur wazan kam hona Tuberculosis ke lakshan hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Sukhhi khansi abhi tak hai par anya lakshan nahi hain"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Petechiae rash spots on torso dekhne ko mil rahe hain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Raat ko pasina",
+          "Wazan kam hona",
+          "Khansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Ab main bahut kamzor mehsoos kar rahi hoon, aur khansi ke saath kabhi-kabhi balgam mein khoon bhi aa raha hai",
+        "image_desc": "holding chest while coughing"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Balgam mein khoon aur kamzori Tuberculosis ke lakshan hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out, kyunki sukhhi khansi abhi tak hai par anya lakshan nahi hain"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out, kyunki petechiae rash spots on torso dekhne ko mil rahe the"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Balgam mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

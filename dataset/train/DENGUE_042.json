@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Mujhe bukhar hai, bahut tezi se bukhar aaya hai, sir dard kar raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Acute onset of high fever and severe headache"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Common cause of high fever and headache"
+          },
+          {
+            "label": "Dengue",
+            "rank": 3,
+            "rationale": "Less likely without other symptoms like retro-orbital pain"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Ab toh aankhon ke peeche dard ho raha hai, haddiyan toot rahi hain, bukhar abhi bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Retro-orbital pain and bone pain are characteristic symptoms"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 2,
+            "rationale": "Also causes joint pain, but less likely to cause retro-orbital pain"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Less likely to cause retro-orbital pain and bone pain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bukhar kam ho gaya hai, lal daane nikal aaye hain, masoodon se khoon aa raha hai",
+        "image_desc": "patient looks exhausted, lying down"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Classic symptoms of Dengue: fever drop, rash, and bleeding gums"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Less likely to cause bleeding gums and rash"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Does not typically cause retro-orbital pain or rash"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard",
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Ab toh bahut kamzori mehsoos ho rahi hai, bukhar bilkul nahin hai, lekin abhi bhi thakawat hai",
+        "image_desc": "dehydrated, dry cracked lips"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Recovery phase, but may still show signs of dehydration and weakness"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Ruled out due to presence of characteristic Dengue symptoms"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to absence of characteristic symptoms like chills and rigors"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

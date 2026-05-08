@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thakaan mehsoos kar rahi hoon, bukhar bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Generic symptoms of low-grade fever and malaise"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Could be a gastrointestinal infection"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Less likely, but possible"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mere bukhar roz badh raha hai, pet dard bhi ho raha hai aur kabz hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Gastroenteritis",
+            "rank": 1,
+            "rationale": "Abdominal pain and constipation suggest a gastrointestinal issue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Still a possibility, but less likely"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Step-wise fever is a characteristic of Typhoid, but other symptoms are not yet clear"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Ab toh tez bukhar hai, aur kabz ke baad dast ho gaya hai, main bahut kamzor mehsoos kar rahi hoon",
+        "image_desc": "Prescription from previous PHC visit shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Tez bukhar, kabz ke baad dast, and severe weakness are all characteristic of Typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Less likely, as the symptoms have progressed beyond a typical gastrointestinal infection"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Not supported by the symptoms presented"
+          }
+        ],
+        "discriminating_symptoms": [
+          "tez bukhar",
+          "kabz ke baad dast",
+          "pet mein bahut dard"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Main abhi bhi bahut kamzor hoon, bukhar bhi hai, aur pet dard se pareshan hoon",
+        "image_desc": "Severe weakness, cannot stand"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Symptoms have progressed to a severe stage, consistent with Typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out, as the symptoms are not consistent with a typical gastrointestinal infection"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out, as the symptoms do not support a diagnosis of Malaria"
+          }
+        ],
+        "discriminating_symptoms": [
+          "severe weakness",
+          "continuous high fever"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

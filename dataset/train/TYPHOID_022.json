@@ -1,0 +1,133 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "main thoda bahut bukhar mehsoos kar raha hoon, sar dard bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "low-grade fever and malaise are common in viral fevers"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "headache can be a symptom of gastroenteritis"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "early stages of typhoid can present with non-specific symptoms like fever and headache"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "bukhar roz badh raha hai, pet dard bhi ho raha hai, kabz bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Gastroenteritis",
+            "rank": 1,
+            "rationale": "abdominal pain and constipation are common in gastroenteritis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "fever can persist in viral fevers, but abdominal pain is less common"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "step-wise fever and abdominal pain can be seen in typhoid, but other symptoms are not yet present"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "tez bukhar hai, kabz ke baad dast ho raha hai, bahut kamzori mehsoos ho rahi hai",
+        "image_desc": "petechiae rash spots on torso"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "cardinal signs like step-wise fever, abdominal pain, and diarrhea after constipation are characteristic of typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "diarrhea can occur in gastroenteritis, but the pattern of symptoms is not typical"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "malaria can cause fever and weakness, but the other symptoms do not fit"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai",
+          "kabz ke baad dast",
+          "pet mein bahut dard"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "bahut thakawat mehsoos ho rahi hai, bukhar abhi bhi hai, pet dard bhi hai",
+        "image_desc": "bruising on arms without injury"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "prolonged fever, abdominal pain, and signs of intestinal perforation like bruising are characteristic of complicated typhoid"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to lack of response to treatment and presence of typhoid-specific symptoms"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to lack of classic symptoms like chills and rigors"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai",
+          "kabz ke baad dast",
+          "pet mein bahut dard",
+          "thakawat"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bukhar aur thakaan mehsoos kar rahi hoon, sar bhi dard kar raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Generic viral presentation with mild fever and fatigue"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Could be an early sign of bronchitis, but not conclusive yet"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Unlikely at this stage, but cannot be ruled out without further investigation"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Mujhe sukhhi khaansi ho rahi hai, aur main thoda zyada thakaan mehsoos kar rahi hoon",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Persistent dry cough could be a sign of bronchitis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Still a possibility, but cough suggests another condition"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Still unlikely, but dry cough is a symptom that needs to be monitored"
+          }
+        ],
+        "discriminating_symptoms": [
+          "sukhhi khaansi"
+        ],
+        "pivot": true,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe raat ko pasina aata hai, aur main wazan kam ho rahi hoon, khaansi bhi 2 hafte se zyada ho gayi hai",
+        "image_desc": "prescription from previous PHC visit shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Night sweats, weight loss, and persistent cough are cardinal signs of tuberculosis"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Less likely now, as symptoms suggest a more chronic condition"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Possible, but symptoms do not fully align with pneumonia"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khaansi 2 hafte se zyada"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Mujhe ab bahut kamzori mehsoos ho rahi hai, aur mujhe balgam mein khoon aaya hai",
+        "image_desc": "prescription and blood test report shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Confirmation of tuberculosis, given the combination of symptoms and test results"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out, as symptoms and test results are not consistent with bronchitis"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out, as symptoms and test results are not consistent with pneumonia"
+          }
+        ],
+        "discriminating_symptoms": [
+          "balgam mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

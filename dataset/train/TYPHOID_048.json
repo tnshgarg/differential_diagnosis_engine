@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Bachcha ko bukhar hai, thakaan mehsoos ho rahi hai, sir dard ho raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Generic symptoms of fever and fatigue"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Could be a gastrointestinal issue"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Less likely, but possible"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bukhar roz badh raha hai, pet dard ho raha hai, kabz ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Gastroenteritis",
+            "rank": 1,
+            "rationale": "Abdominal pain and constipation suggest a gastrointestinal issue"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Fever is still present, but other symptoms are more prominent"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Still a possibility, but other symptoms are more likely"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Tez bukhar hai, kabz ke baad dast ho raha hai, bahut kamzor mehsoos ho raha hu",
+        "image_desc": "swollen lymph nodes on neck"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Classic symptoms of typhoid fever, including fever, diarrhea after constipation, and severe weakness"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Less likely, as the symptoms are more severe and specific"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Possible, but the symptoms are more consistent with typhoid"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai",
+          "kabz ke baad dast",
+          "pet mein bahut dard"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Bachcha puri tarah se thak gaya hai, bukhar abhi bhi hai, pet dard bahut badh gaya hai",
+        "image_desc": "patient on cot, unable to move"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Symptoms have worsened, and the patient is at risk of intestinal perforation"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out, as the symptoms are more severe and specific to typhoid"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out, as the symptoms are not consistent with malaria"
+          }
+        ],
+        "discriminating_symptoms": [
+          "exhaustion",
+          "continuous high fever"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "disease_ground_truth": "Typhoid",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Bachcha ko low-grade fever hai, sir dard hai, aur thakaan mehsoos ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": " Generic fever and fatigue"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Mild symptoms, could be gastrointestinal issue"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Less likely, but possible"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Bachche ko bukhar roz badh raha hai, pet dard ho raha hai, aur kabz hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Gastroenteritis",
+            "rank": 1,
+            "rationale": "Abdominal pain and constipation"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Fever is increasing, but still could be viral"
+          },
+          {
+            "label": "Typhoid",
+            "rank": 3,
+            "rationale": "Possible, but not the most likely at this stage"
+          }
+        ],
+        "discriminating_symptoms": [
+          "bukhar roz badh raha hai"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bachche ko tez bukhar hai, kabz ke baad dast ho gaya hai, aur bahut kamzori mehsoos ho rahi hai",
+        "image_desc": "prescription from previous PHC visit shown"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Classic symptoms of typhoid fever, including step-wise increase in fever and diarrhea after constipation"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Still a possibility, but less likely"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Less likely, but should be ruled out with further testing"
+          }
+        ],
+        "discriminating_symptoms": [
+          "kabz ke baad dast",
+          "tez bukhar"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Bachche ki haalat kharab ho rahi hai, bukhar abhi tak hai, aur bahut thakaan mehsoos ho rahi hai",
+        "image_desc": "dehydrated, dry cracked lips"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Typhoid",
+            "rank": 1,
+            "rationale": "Classic symptoms of typhoid fever, including prolonged fever and severe weakness"
+          },
+          {
+            "label": "Gastroenteritis",
+            "rank": 2,
+            "rationale": "Ruled out due to prolonged fever and severe symptoms"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out due to lack of specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [
+          "severe weakness"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

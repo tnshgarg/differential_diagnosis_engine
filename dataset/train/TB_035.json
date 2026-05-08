@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thak jaati hoon, bukhar bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Generic viral presentation"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Cough not present yet"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "No cardinal signs yet"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Khansi shuru ho gayi hai, sookhi khansi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Dry cough started"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Fever and fatigue still present"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "No cardinal signs yet"
+          }
+        ],
+        "discriminating_symptoms": [
+          "sookhi khansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Raat ko pasina aata hai, wazan kam ho raha hai, khansi 2 hafte se zyada ho gayi hai",
+        "image_desc": "swollen lymph nodes on neck"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Cardinal signs of TB: night sweats, weight loss, chronic cough"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Chronic cough, but no other cardinal signs"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "No symptoms of pneumonia yet"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Balgam mein khoon aa raha hai, bahut kamzor mehsoos ho raha hoon",
+        "image_desc": "dehydrated, dry cracked lips"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Hemoptysis and severe weakness confirm TB"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out due to lack of response to treatment and worsening symptoms"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out due to chronic nature of symptoms and presence of cardinal signs of TB"
+          }
+        ],
+        "discriminating_symptoms": [
+          "balgam mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

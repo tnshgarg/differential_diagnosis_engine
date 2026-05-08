@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": -1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Meri tabiyat kharab hai, bukhar hai aur thakaan mehsoos ho rahi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Mild fever and fatigue are common symptoms of viral fever"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Although less likely, bronchitis can also present with similar symptoms"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Tuberculosis is less likely at this stage without any specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Ab meri khaansi bhi shuru ho gayi hai, sookhi khaansi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "The onset of dry cough increases the likelihood of bronchitis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever can also present with cough, but it is less likely to be the primary cause"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Tuberculosis is still less likely without any specific symptoms like night sweats or weight loss"
+          }
+        ],
+        "discriminating_symptoms": [
+          "sookhi khaansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Raat ko pasina aata hai, wazan bhi kam ho raha hai, khaansi ab tak 2 hafte se zyada ho gayi hai",
+        "image_desc": "pale appearance, dark circles under eyes"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Night sweats, weight loss, and prolonged cough are cardinal signs of tuberculosis"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Although bronchitis can cause cough, the presence of night sweats and weight loss makes it less likely"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Pneumonia can present with similar symptoms, but the chronic nature of symptoms points more towards tuberculosis"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khaansi 2 hafte se zyada"
+        ],
+        "pivot": false,
+        "action": "defer"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Ab meri haalat aur bhi kharab ho gayi hai, bahut kamzori mehsoos ho rahi hai, balgam mein khoon bhi aaya hai",
+        "image_desc": "jaundiced appearance"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "The presence of blood in sputum and severe weakness confirms tuberculosis"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out due to the presence of specific symptoms of tuberculosis"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out due to the chronic nature of symptoms and specific signs of tuberculosis"
+          }
+        ],
+        "discriminating_symptoms": [
+          "balgam mein khoon"
+        ],
+        "pivot": false,
+        "action": "defer"
+      }
+    }
+  ]
+}

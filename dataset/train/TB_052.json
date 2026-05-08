@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Buzurg hoon, 70 saal ka, thoda bukhar hai, thakaan mehsoos ho rahi hai, sar dard hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Bukhar aur thakaan ke lakshan dikhai de rahe hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Khaansi ka lakshan abhi tak nahin hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Abhi tak koi vishisht lakshan nahin hai"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Ab khaansi bhi shuru ho gayi hai, sookhi khaansi hai, raat bhar aise hi rahi",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Sookhi khaansi shuru ho gayi hai"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Bukhar aur thakaan abhi bhi hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Abhi tak koi vishisht lakshan nahin hai"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Sookhi khaansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Raat ko pasina aata hai, wazan bhi kam ho raha hai, khaansi abhi bhi hai, 2 hafte se zyada ho gaye hain",
+        "image_desc": "pale appearance, dark circles under eyes"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Raat ko pasina, wazan kam hona, aur khaansi 2 hafte se zyada, yeh sab lakshan Tuberculosis ke hai"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Khaansi ke lakshan hain, lekin anya lakshan nahin hain"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Abhi tak koi vishisht lakshan nahin hai"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Raat ko pasina",
+          "Wazan kam hona",
+          "Khaansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Ab to bahut kamzori mehsoos ho rahi hai, khaansi mein kabhi-kabhi khoon bhi aata hai",
+        "image_desc": "jaundiced appearance"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Khaansi mein khoon, aur kamzori, yeh sab lakshan Tuberculosis ke hai"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out, kyunki khaansi mein khoon aana shuru ho gaya hai"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out, kyunki anya lakshan nahin hain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Khaansi mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

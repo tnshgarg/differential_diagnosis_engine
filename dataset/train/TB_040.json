@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bukhar aur thakan mehsoos kar raha hoon, sar bhi dard kar raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Bukhar aur thakan ke symptons viral fever ki taraf ishara karte hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Abhi tak khansi ki koi shikayat nahi hai, isliye bronchitis ki sambhavana kam hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Abhi tak TB ke kisi specific symptom ki pahchan nahi hui hai"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Maine kal se sookhi khansi shuru ho gayi hai, bukhar bhi thoda hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "Sookhi khansi bronchitis ki taraf ishara karti hai"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Bukhar aur thakan abhi bhi maujood hain, lekin khansi ki shuruaat bronchitis ki taraf le jaati hai"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Abhi tak TB ke specific symptoms nahi hain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Sookhi khansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Maine 2 hafte se zyada khansi hai, raat ko pasina aata hai aur wazan kam ho raha hai",
+        "image_desc": "sweating visible on forehead"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Raat ko pasina, wazan kam hona aur lambi khansi TB ki cardinal signs hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Khansi toh hai, lekin raat ko pasina aur wazan kam hona bronchitis mein aam nahi hain"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Pneumonia mein aam taur par bukhar aur saans lene mein takleef hoti hai, jo abhi nahi hai"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Raat ko pasina",
+          "Wazan kam ho raha hai",
+          "Khansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Main bohot kamzor mehsoos kar raha hoon, khansi ke saath kabhi-kabhi thook mein khoon bhi aata hai",
+        "image_desc": "holding chest while coughing"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Thook mein khoon aana TB ki ek classic sign hai, khansi aur kamzori bhi TB ke symptoms hain"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out, kyunki bronchitis mein itni lambi khansi aur thook mein khoon aana aam nahi hai"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out, kyunki pneumonia mein bukhar aur saans lene mein takleef hoti hai, jo abhi nahi hai"
+          }
+        ],
+        "discriminating_symptoms": [
+          "Thook mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

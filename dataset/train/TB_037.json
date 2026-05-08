@@ -1,0 +1,131 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": 2,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bukhar aur thakaan mehsoos kar raha hoon, aaj subah uthne ke baad se yeh sab shuru hua hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Mild fever and fatigue are common symptoms of viral infections"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Although less likely at this stage, bronchitis can also cause similar symptoms"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Tuberculosis is less likely given the acute onset and lack of other specific symptoms"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Ab mujhe khansi bhi ho rahi hai, par yeh sookhi khansi hai, koi balgam nahi araaha",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "The onset of dry cough increases the likelihood of bronchitis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral infections can also cause cough, but the presence of dry cough leans more towards bronchitis"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "Still less likely without more specific symptoms like night sweats or significant weight loss"
+          }
+        ],
+        "discriminating_symptoms": [
+          "sookhi khansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Raat ko mujhe bahut pasina aata hai, aur maine wazan bhi kam mehsoos kiya hai, khansi ab bhi hai",
+        "image_desc": "sweating visible on forehead"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "Night sweats, weight loss, and prolonged cough are cardinal signs of tuberculosis"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "While bronchitis can cause cough, the additional symptoms of night sweats and weight loss are not typical"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Pneumonia could be a consideration but the chronic nature of symptoms and specific symptoms like night sweats point more towards tuberculosis"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona",
+          "khaansi 2 hafte se zyada"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Ab main bahut kamzor mehsoos kar raha hoon, aur kabhi-kabhi meri khaansi mein thoda khoon bhi nikalta hai",
+        "image_desc": "bruising on arms without injury"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "The presence of blood in sputum and severe weakness are confirmatory signs of advanced tuberculosis"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out due to the progression of symptoms and specific signs of tuberculosis"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out as the clinical picture is more consistent with tuberculosis"
+          }
+        ],
+        "discriminating_symptoms": [
+          "kamzori",
+          "balgam mein khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

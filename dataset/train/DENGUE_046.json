@@ -1,0 +1,129 @@
+{
+  "disease_ground_truth": "Dengue",
+  "pivot_visit": 1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Meri tabiyat bahut kharab hai, bukhar bahut tezi se chadha hai, sir bahut dard kar raha hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Chikungunya",
+            "rank": 1,
+            "rationale": "Aam taur par bukhar aur sir dard ke lakshan hote hain"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever bhi bukhar aur sir dard ka karan ho sakta hai"
+          },
+          {
+            "label": "Dengue",
+            "rank": 3,
+            "rationale": "Dengue bhi bukhar aur sir dard ka karan ho sakta hai, lekin abhi tak koi vishisht lakshan nahi hain"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Ab aankhon ke peeche dard ho raha hai, haddiyan toot rahi hain, bukhar abhi tak bana hua hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Aankhon ke peeche dard aur haddiyan tootne ka dard Dengue ke lakshan hote hain"
+          },
+          {
+            "label": "Chikungunya",
+            "rank": 2,
+            "rationale": "Chikungunya bhi joint pain ka karan ho sakta hai, lekin aankhon ke peeche dard kam dekha jata hai"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 3,
+            "rationale": "Viral fever mein aankhon ke peeche dard aur haddiyan tootne ka dard kam dekha jata hai"
+          }
+        ],
+        "discriminating_symptoms": [
+          "aankhon ke peeche dard"
+        ],
+        "pivot": true,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Bukhar ab thoda kam ho gaya hai, lekin ab lal daane nikal aaye hain, masoodon se khoon aa raha hai",
+        "image_desc": "pale appearance, dark circles under eyes"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Lal daane, masoodon se khoon aur bukhar ka kam hona Dengue ke cardinal lakshan hote hain"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Viral fever mein lal daane aur masoodon se khoon kam dekha jata hai"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Malaria mein bhi bukhar aur lal daane ho sakte hain, lekin masoodon se khoon kam dekha jata hai"
+          }
+        ],
+        "discriminating_symptoms": [
+          "lal daane",
+          "masoodon se khoon"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Ab toh bahut kamzori mehsoos ho rahi hai, aur jaundice bhi ho gaya hai",
+        "image_desc": "jaundiced appearance"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Dengue",
+            "rank": 1,
+            "rationale": "Jaundice aur kamzori Dengue ke badhte lakshan hote hain"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "Ruled out, kyunki Dengue ke lakshan bahut spasht hain"
+          },
+          {
+            "label": "Malaria",
+            "rank": 3,
+            "rationale": "Ruled out, kyunki Dengue ke lakshan bahut spasht hain"
+          }
+        ],
+        "discriminating_symptoms": [
+          "jaundice"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "disease_ground_truth": "Tuberculosis",
+  "pivot_visit": -1,
+  "visits": [
+    {
+      "day": 0,
+      "inputs": {
+        "text": "Main thoda bukhaar aur thakaan mehsoos kar rahi hoon",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Viral fever",
+            "rank": 1,
+            "rationale": "Patient presents with mild fever and fatigue, which are common symptoms of a viral infection"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Dry cough is not present yet, but it could be a possibility if the symptoms persist"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "There are no specific symptoms indicating TB at this point"
+          }
+        ],
+        "discriminating_symptoms": [],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 5,
+      "inputs": {
+        "text": "Ab mujhe sukha khaansi ho rahi hai, aur bukhaar bhi hai",
+        "image_desc": null
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Bronchitis",
+            "rank": 1,
+            "rationale": "The onset of dry cough is consistent with bronchitis"
+          },
+          {
+            "label": "Viral fever",
+            "rank": 2,
+            "rationale": "The fever is still present, but the cough is a new development"
+          },
+          {
+            "label": "Tuberculosis",
+            "rank": 3,
+            "rationale": "The symptoms are not specific enough to indicate TB at this point"
+          }
+        ],
+        "discriminating_symptoms": [
+          "sukha khaansi"
+        ],
+        "pivot": false,
+        "action": "observe"
+      }
+    },
+    {
+      "day": 9,
+      "inputs": {
+        "text": "Mujhe raat ko pasina aata hai, aur main wazan bhi kam kar rahi hoon",
+        "image_desc": "sweating visible on forehead"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "The presence of night sweats and weight loss are cardinal signs of TB"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "The symptoms are not typical of bronchitis, which usually does not present with night sweats and weight loss"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "The symptoms are not specific enough to indicate pneumonia at this point"
+          }
+        ],
+        "discriminating_symptoms": [
+          "raat ko pasina",
+          "wazan kam hona"
+        ],
+        "pivot": false,
+        "action": "defer"
+      }
+    },
+    {
+      "day": 14,
+      "inputs": {
+        "text": "Ab mujhe bahut kamzori mehsoos ho rahi hai, aur khaansi mein kabhi-kabhi khoon bhi aa raha hai",
+        "image_desc": "dehydrated, dry cracked lips"
+      },
+      "expected_output": {
+        "hypotheses": [
+          {
+            "label": "Tuberculosis",
+            "rank": 1,
+            "rationale": "The presence of severe weakness, hemoptysis, and weight loss are consistent with advanced TB"
+          },
+          {
+            "label": "Bronchitis",
+            "rank": 2,
+            "rationale": "Ruled out due to the presence of specific symptoms indicating TB"
+          },
+          {
+            "label": "Pneumonia",
+            "rank": 3,
+            "rationale": "Ruled out due to the chronic nature of the symptoms and the presence of hemoptysis"
+          }
+        ],
+        "discriminating_symptoms": [
+          "khaansi 2 hafte se zyada",
+          "khoon aa raha hai"
+        ],
+        "pivot": false,
+        "action": "refer_PHC"
+      }
+    }
+  ]
+}
